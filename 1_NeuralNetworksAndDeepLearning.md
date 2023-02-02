@@ -76,6 +76,49 @@
    1. ![image-20230116155508686](D:\GitHubResourse\复试内容准备\机器学习\1_NeuralNetworksAndDeepLearning.assets\image-20230116155508686.png)</br><center>这是一个流程图</center>
    2. 链式计算公式：![image-20230116155815246](D:\GitHubResourse\复试内容准备\机器学习\1_NeuralNetworksAndDeepLearning.assets\image-20230116155815246.png)
    3. 输出变量对于某个变量的导数，我们用dvar命名
+   
+9. Logistic回归的梯度下降法
+
+   1. exp：![image-20230117093802133](D:\GitHubResourse\复试内容准备\机器学习\1_NeuralNetworksAndDeepLearning.assets\image-20230117093802133.png)<br>![image-20230117093830198](D:\GitHubResourse\复试内容准备\机器学习\1_NeuralNetworksAndDeepLearning.assets\image-20230117093830198.png)<br>为了使得逻辑回归中最小化代价函数，我们需要做的仅仅是修改参数w和b的值，现在进行的就是反向计算的过程![image-20230117094456351](D:\GitHubResourse\复试内容准备\机器学习\1_NeuralNetworksAndDeepLearning.assets\image-20230117094456351.png)![image-20230117095005280](D:\GitHubResourse\复试内容准备\机器学习\1_NeuralNetworksAndDeepLearning.assets\image-20230117095005280.png)注意：该仅仅是一个样本的梯度下降法进行调整
+
+10. m个样本的梯度下降法
+
+    1. 代价函数=>针对于多个样本进行的综合（算术平均值）
+    2. 针对于多个样本要进行对参数w<sub>1</sub>和w<sub>2</sub>以及b的综合优化（算术平均）![image-20230117100350676](D:\GitHubResourse\复试内容准备\机器学习\1_NeuralNetworksAndDeepLearning.assets\image-20230117100350676.png)同时也要做到对微分的平均
+    3. 需要注意的是，这仅仅是对两个参数进行的优化，就用到了两层for循环，如果多个参数时，会有更多层的循环，在应用深度学习算法的时候，你会发现在代码显式使用for循环会使算法很低效，并且在深度学习领域会有越来越大的数据集，所以能够应用算法并且没有显式的for循环是非常重要的，并且会帮助适用于更大的数据集，所以出现了向量化技术便于解决该类问题。
+
+11. 向量化
+
+    1. 运用向量化的原因：运行速度会更快（cpu以及gpu的并行决定了这一点）
+    2. 一般会使用python内置的numpty内置函数帮助计算，所以当你在写循环的时候可以检查numpty是否存在类似的内置函数从而避免使用loop。
+
+12. 向量化Logistic回归
+
+    1. 训练输入 X => (n<sub>x</sub>，m)的矩阵 R<sup>n<sub>x</sub>*m</sup>
+    2. 计算公式: [z<sup>(1)</sup>z<sup>(2)</sup>.....z<sup>(m)</sup>] = w<sup>T</sup>X + [bbbbbb] = [w<sup>T</sup>x<sup>(1)</sup> + b,w<sup>T</sup>x<sup>(2)</sup> + b,w<sup>T</sup>x<sup>(m)</sup> + b,]
+    3. 由上述z综合组成的1*m矩阵综合成为Z的变量
+    4. 接下来的任务就是找到一个同时计算[a<sup>(1)</sup>,a<sup>(2)</sup>...a<sup>(m)</sup>]的方法，利用σ一次性计算所有的a
+    
+13. 向量化Logistic 回归的梯度输出（同时计算m个数据的梯度，并且实现一个非常高效的逻辑回归算法Logistic Regression）
+
+    1. 之前梯度计算中 dz<sup>(1)</sup> = a<sup>(1)</sup> - y<sup>(1)</sup>,dz<sup>(2)</sup> = a<sup>(2)</sup> - y<sup>(2)</sup>.....现在对于m个训练数据做同样的运算，我们可以定义一个新的变量dZ 即所有的dz变量横向排列
+    2. 我们已经知道所有的dz<sup>(i)</sup>已经组成了一个行向量dZ，在python中，我们很容易联想到db = np.sum(dZ)/m，dw  = X*dz<sup>T</sup>,这样的话能够避免在训练集上使用for循环
+    3. ![image-20230202172850905](D:\GitHubResourse\复试内容准备\机器学习\1_NeuralNetworksAndDeepLearning.assets\image-20230202172850905.png) ![image-20230202172755213](D:\GitHubResourse\复试内容准备\机器学习\1_NeuralNetworksAndDeepLearning.assets\image-20230202172755213.png)
+
+14. python中的广播（介绍函数使用）
+
+    1. X.sum(axis) 其中sum的参数表示求和运算需要按列执行（0轴是垂直的，即列。而1轴是水平的，也就是行）
+    2. X.reshape 调用了numpy中的广播机制，当我们写代码不确定矩阵维度的时候，通常会使用重塑来确保得到我们想要的列向量或者行向量。（注：reshape是一个常量时间的操作，时间复杂度是O（1））实际上就是对原来矩阵的一种扩充
+
+15. python中的一些问题：
+
+    1. shape 中 (5,) 是指一个一维数组而不是一个矩阵，其转置也是一个一维数组。同时输出a和a<sup>T</sup>的内积，只会得到一个数。
+    2. 运行的命令是np.random.randn(5)会生成一个一维数组，一般会使用（5，1）column shape或者（1，5）row shape
+    3. 不确定一个向量的维度时，经常会使用一个assert
+
+16. 习题总结
+
+    1. 神经元计算一个线性函数，然后接一个激活函数
 
 ## C. One hidden layer Neural Networks
 

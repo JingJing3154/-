@@ -119,8 +119,27 @@
 16. 习题总结
 
     1. 神经元计算一个线性函数，然后接一个激活函数
+    
+    2. 编程练习
+    
+       
 
 ## C. One hidden layer Neural Networks
+
+1. 神经网络概述
+   1. 可以把许多sigmoid单元堆叠起来形成一个神经网络![image-20230206103937477](D:\GitHubResourse\复试内容准备\机器学习\1_NeuralNetworksAndDeepLearning.assets\image-20230206103937477.png)s首先计算第一层网络中的各个节点的相关数z，接着计算a，在下一层网络同理，会使用符号<sup>[m]</sup>表示第m层网络中节点相关的数，节点的集合被称为第m层网络计算过程如下：![image-20230206104721129](D:\GitHubResourse\复试内容准备\机器学习\1_NeuralNetworksAndDeepLearning.assets\image-20230206104721129.png)![image-20230206104734297](D:\GitHubResourse\复试内容准备\机器学习\1_NeuralNetworksAndDeepLearning.assets\image-20230206104734297.png)![image-20230206104739529](D:\GitHubResourse\复试内容准备\机器学习\1_NeuralNetworksAndDeepLearning.assets\image-20230206104739529.png)![image-20230206104948299](D:\GitHubResourse\复试内容准备\机器学习\1_NeuralNetworksAndDeepLearning.assets\image-20230206104948299.png)
+   2. 神经网络表示：![image-20230206105236744](D:\GitHubResourse\复试内容准备\机器学习\1_NeuralNetworksAndDeepLearning.assets\image-20230206105236744.png)
+      1. 我们有输入特征x1，x2，x3，它们被竖直的堆叠，这叫做神经网络的输入层，它包含了神经网络的输入，中间这一层我们称之为隐藏层。本例中最后一层只由一个结点构成，只有一个结点的层被称为输出层，它负责产生预测值。**隐藏层解释：在一个神经网络中，监督学习训练的时候，训练集包括了输入x和输出y，但中间结点的准确值我们是不知道的，我们看不见它们在训练集中应有的值。
+      2. 引入符号：a<sup>[0]</sup>可用来表示输入特征，a表示激活的意思，它意味着网络中不同层的值会传递到它们后面的层中，输入层将x传递给隐藏层，所以我们将输入层的激活值称为a<sup>[0]</sup>，下一层隐藏层同样会产生一些激活值，我们将其记作a<sub>1</sub><sup>[1]</sup>，这样的解释就是第一层的第一个结点或是第一个单元。
+      3. 就该例而言，最后产生的数值a，它只是一个单独的实数，所以将最后的输出值也可以取为a<sup>[2]</sup>。这与逻辑回归相似。
+      4. 我们在计算网络的层数时，输入层是不算入总层数之中的，所以隐藏层是第一层，习惯上将输入层称为第0层
+      5. 我们看到的隐藏层以及最后的输出层是带有参数的。这里的隐藏层将会拥有两个参数W和b，注意：参数也会有上标的，即用来表示某层的参数，W矩阵的行列数与输入和单元有关![image-20230206110742307](D:\GitHubResourse\复试内容准备\机器学习\1_NeuralNetworksAndDeepLearning.assets\image-20230206110742307.png)
+   3. 神经网络的输出
+      1. 逻辑回归的计算有两个步骤，首先按照步骤计算出z，以sigmod函数为激活函数计算z（得出a），一个神经网络只是这样子做了好几次重复计算。![image-20230206113349556](D:\GitHubResourse\复试内容准备\机器学习\1_NeuralNetworksAndDeepLearning.assets\image-20230206113349556.png)
+      2. 向量化计算：将四个等式向量化之后，向量化的过程是将网络中的一层神经元参数纵向堆积起来，例如隐藏层中的w纵向堆积起来变成一个（4，3）的矩阵，用符号W<sup>[1]</sup>表示。另一个视角是我们由四个逻辑回归单元，且每一个逻辑回归单元都有相应的参数-向量W，将四个向量堆积在一起，会得出4x3的矩阵，由公式：![image-20230206165348002](D:\GitHubResourse\复试内容准备\机器学习\1_NeuralNetworksAndDeepLearning.assets\image-20230206165348002.png)![image-20230206165353191](D:\GitHubResourse\复试内容准备\机器学习\1_NeuralNetworksAndDeepLearning.assets\image-20230206165353191.png)![image-20230206165402729](D:\GitHubResourse\复试内容准备\机器学习\1_NeuralNetworksAndDeepLearning.assets\image-20230206165402729.png)针对于每一层的输入以及输出，后一层的表示同样可以写成类似的形式。
+      3. 该层W的行列由前一层和后一层共同决定，其中行数是这一层的单元个数，列数是上一层的单元个数
+      4. ![image-20230206170151379](D:\GitHubResourse\复试内容准备\机器学习\1_NeuralNetworksAndDeepLearning.assets\image-20230206170151379.png)
+   4. 
 
 ## d. Deep Neural Networks
 

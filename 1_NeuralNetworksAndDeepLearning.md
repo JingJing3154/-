@@ -5,7 +5,7 @@
 1. ReLU函数:（修正线性单元）修正->取不小于0的值
 2. 序列数据:时间一维
 3. 图像数据：RNN（卷积神经网络）
-4. ![image-20230116093512817](D:\GitHubResourse\复试内容准备\机器学习\1_NeuralNetworksAndDeepLearning.assets\image-20230116093512817.png)
+4. ![image-20230116093512817](D:\2023\深度学习\1_NeuralNetworksAndDeepLearning.assets\image-20230112103048164.png)
    1. SNN：标准神经网络
    2. CNN：卷积神经网络（图像数据）
    3. RNN：循环神经网络（序列数据）
@@ -27,7 +27,7 @@
    3. (x<sup>(1)</sup>,y<sup>(1)</sup>)表示样本1
    4. X<sup>nxm</sup>由x1、x2.....列组成，有m列(python函数X.shape可输出矩阵维度)
    5. Y<sup>1xm</sup>=[y<sup>(1)</sup> y<sup>(2)</sup> y<sup>(3)</sup>......] Y.shape = (1,m)
-   6. ![image-20230116100801672](D:\GitHubResourse\复试内容准备\机器学习\1_NeuralNetworksAndDeepLearning.assets\image-20230116100801672.png)
+   6. ![image-20230116100801672](D:\2023\深度学习\1_NeuralNetworksAndDeepLearning.assets\image-20230116100801672.png)
 
 2. 二分分类(主要说结果 1|0)
 
@@ -36,7 +36,7 @@
 3. logistic回归
 
    1. 结果介于0-1之间，所以一般不能够使用线性函数进行预测，所以要使用sigmod()函数**0-1的光滑曲线**，y=sigmod(w<sup>T</sup>x + b) 参数里面还有b，这是一个实数（表示偏差）
-   2. ![image-20230116100229113](D:\GitHubResourse\复试内容准备\机器学习\1_NeuralNetworksAndDeepLearning.assets\image-20230116100229113.png)
+   2. ![image-20230116100229113](D:\2023\深度学习\1_NeuralNetworksAndDeepLearning.assets\image-20230116100229113.png)
 
 4.  Logistic 回归损失函数 (Logistic Regression Cost Function)
 
@@ -46,20 +46,20 @@
       $$
       y \quad and\quad \overline{y} \quad 能够保持接近的状态
       $$
-      ![image-20230116101015115](D:\GitHubResourse\复试内容准备\机器学习\1_NeuralNetworksAndDeepLearning.assets\image-20230116101015115.png)<br>这种函数计算的是单个样本和预测值之间的接近程度
+      ![image-20230116101015115](D:\2023\深度学习\1_NeuralNetworksAndDeepLearning.assets\image-20230116101015115.png)<br>这种函数计算的是单个样本和预测值之间的接近程度
 
-   3. 代价函数-> 所有训练集的训练样本的平均程度![image-20230116102625545](D:\GitHubResourse\复试内容准备\机器学习\1_NeuralNetworksAndDeepLearning.assets\image-20230116102625545.png)
+   3. 代价函数-> 所有训练集的训练样本的平均程度![image-20230116102625545](D:\2023\深度学习\1_NeuralNetworksAndDeepLearning.assets\image-20230116102625545.png)
 
    4. 因此我们在训练逻辑回归模型时，需要找到合适的W和b，使得代价函数的J的总代价降到最低。、
 
 5. 梯度下降法
 
-   1. 形象化说明![image-20230116105325806](D:\GitHubResourse\复试内容准备\机器学习\1_NeuralNetworksAndDeepLearning.assets\image-20230116105325806.png)
+   1. 形象化说明![image-20230116105325806](D:\2023\深度学习\1_NeuralNetworksAndDeepLearning.assets\image-20230116105325806.png)
    2. 在实践中w可以是更高的维度，我们应用到函数中的任意w、b都是图中的某一点，在该点曲面的高度J是某一点的函数值，我们希望不断地调整w、b使得让该点的高度降低到最低点使得成本（代价）降到最低。
    3. 注意：代价函数\成本函数需要是一种凸函数
    4. 优化的过程就是**朝最陡的下坡方向走，不断的迭代。直到走到全局最优解或者接近全局最优解的地方**
-   5. 单个参数的梯度下降法优化![image-20230116112702038](D:\GitHubResourse\复试内容准备\机器学习\1_NeuralNetworksAndDeepLearning.assets\image-20230116112702038.png)<br>:=表示更新参数 a表示学习率（learning rate），用来控制步长（step），即向下走一步的长度，以及导数
-   6. 双参数的梯度下降法<br>![image-20230116112907031](D:\GitHubResourse\复试内容准备\机器学习\1_NeuralNetworksAndDeepLearning.assets\image-20230116112907031.png)
+   5. 单个参数的梯度下降法优化![image-20230116112702038](D:\2023\深度学习\1_NeuralNetworksAndDeepLearning.assets\image-20230116112702038.png)<br>:=表示更新参数 a表示学习率（learning rate），用来控制步长（step），即向下走一步的长度，以及导数
+   6. 双参数的梯度下降法<br>![image-20230116112907031](D:\2023\深度学习\1_NeuralNetworksAndDeepLearning.assets\image-20230116112907031.png)
 
 6. 导数 =>变化率
 
@@ -67,24 +67,24 @@
 
    1. 神经网络的计算，都是按照前向或者反向传播过程组织的。首先我们计算出一个新的网络的输出（前向），紧接着进行一个反向传输操作。后者我们用来计算出相应的梯度和导数。
    2. 计算图：就是将计算的式子进行逐步翻译，中缀表达式，每一次运算结果用另一参数表示，便于反向计算时对参数的调整。
-   3. ![image-20230116155131310](D:\GitHubResourse\复试内容准备\机器学习\1_NeuralNetworksAndDeepLearning.assets\image-20230116155131310.png)
+   3. ![image-20230116155131310](D:\2023\深度学习\1_NeuralNetworksAndDeepLearning.assets\image-20230116155131310.png)
       1. 从左到右，正常的计算步骤，计算出J
       2. 从右到左，用于计算导数最自然的方式
 
 8. 计算图的导数计算（链式法则）（反向传播计算）
 
-   1. ![image-20230116155508686](D:\GitHubResourse\复试内容准备\机器学习\1_NeuralNetworksAndDeepLearning.assets\image-20230116155508686.png)</br><center>这是一个流程图</center>
-   2. 链式计算公式：![image-20230116155815246](D:\GitHubResourse\复试内容准备\机器学习\1_NeuralNetworksAndDeepLearning.assets\image-20230116155815246.png)
+   1. ![image-20230116155508686](D:\2023\深度学习\1_NeuralNetworksAndDeepLearning.assets\image-20230116155508686.png)</br><center>这是一个流程图</center>
+   2. 链式计算公式：![image-20230116155815246](D:\2023\深度学习\1_NeuralNetworksAndDeepLearning.assets\image-20230116155815246.png)
    3. 输出变量对于某个变量的导数，我们用dvar命名
    
 9. Logistic回归的梯度下降法
 
-   1. exp：![image-20230117093802133](D:\GitHubResourse\复试内容准备\机器学习\1_NeuralNetworksAndDeepLearning.assets\image-20230117093802133.png)<br>![image-20230117093830198](D:\GitHubResourse\复试内容准备\机器学习\1_NeuralNetworksAndDeepLearning.assets\image-20230117093830198.png)<br>为了使得逻辑回归中最小化代价函数，我们需要做的仅仅是修改参数w和b的值，现在进行的就是反向计算的过程![image-20230117094456351](D:\GitHubResourse\复试内容准备\机器学习\1_NeuralNetworksAndDeepLearning.assets\image-20230117094456351.png)![image-20230117095005280](D:\GitHubResourse\复试内容准备\机器学习\1_NeuralNetworksAndDeepLearning.assets\image-20230117095005280.png)注意：该仅仅是一个样本的梯度下降法进行调整
+   1. exp：![image-20230117093802133](D:\2023\深度学习\1_NeuralNetworksAndDeepLearning.assets\image-20230117093802133.png)<br>![image-20230117093830198](D:\2023\深度学习\1_NeuralNetworksAndDeepLearning.assets\image-20230117093830198.png)<br>为了使得逻辑回归中最小化代价函数，我们需要做的仅仅是修改参数w和b的值，现在进行的就是反向计算的过程![image-20230117094456351](D:\2023\深度学习\1_NeuralNetworksAndDeepLearning.assets\image-20230117094456351.png)![image-20230117095005280](D:\2023\深度学习\1_NeuralNetworksAndDeepLearning.assets\image-20230117095005280.png)注意：该仅仅是一个样本的梯度下降法进行调整
 
 10. m个样本的梯度下降法
 
     1. 代价函数=>针对于多个样本进行的综合（算术平均值）
-    2. 针对于多个样本要进行对参数w<sub>1</sub>和w<sub>2</sub>以及b的综合优化（算术平均）![image-20230117100350676](D:\GitHubResourse\复试内容准备\机器学习\1_NeuralNetworksAndDeepLearning.assets\image-20230117100350676.png)同时也要做到对微分的平均
+    2. 针对于多个样本要进行对参数w<sub>1</sub>和w<sub>2</sub>以及b的综合优化（算术平均）![image-20230117100350676](D:\2023\深度学习\1_NeuralNetworksAndDeepLearning.assets\image-20230117100350676.png)同时也要做到对微分的平均
     3. 需要注意的是，这仅仅是对两个参数进行的优化，就用到了两层for循环，如果多个参数时，会有更多层的循环，在应用深度学习算法的时候，你会发现在代码显式使用for循环会使算法很低效，并且在深度学习领域会有越来越大的数据集，所以能够应用算法并且没有显式的for循环是非常重要的，并且会帮助适用于更大的数据集，所以出现了向量化技术便于解决该类问题。
 
 11. 向量化
@@ -103,7 +103,7 @@
 
     1. 之前梯度计算中 dz<sup>(1)</sup> = a<sup>(1)</sup> - y<sup>(1)</sup>,dz<sup>(2)</sup> = a<sup>(2)</sup> - y<sup>(2)</sup>.....现在对于m个训练数据做同样的运算，我们可以定义一个新的变量dZ 即所有的dz变量横向排列
     2. 我们已经知道所有的dz<sup>(i)</sup>已经组成了一个行向量dZ，在python中，我们很容易联想到db = np.sum(dZ)/m，dw  = X*dz<sup>T</sup>,这样的话能够避免在训练集上使用for循环
-    3. ![image-20230202172850905](D:\GitHubResourse\复试内容准备\机器学习\1_NeuralNetworksAndDeepLearning.assets\image-20230202172850905.png) ![image-20230202172755213](D:\GitHubResourse\复试内容准备\机器学习\1_NeuralNetworksAndDeepLearning.assets\image-20230202172755213.png)
+    3. ![image-20230202172850905](D:\2023\深度学习\1_NeuralNetworksAndDeepLearning.assets\image-20230202172850905.png) ![image-20230202172755213](D:\2023\深度学习\1_NeuralNetworksAndDeepLearning.assets\image-20230202172755213.png)
 
 14. python中的广播（介绍函数使用）
 
@@ -127,19 +127,75 @@
 ## C. One hidden layer Neural Networks
 
 1. 神经网络概述
-   1. 可以把许多sigmoid单元堆叠起来形成一个神经网络![image-20230206103937477](D:\GitHubResourse\复试内容准备\机器学习\1_NeuralNetworksAndDeepLearning.assets\image-20230206103937477.png)s首先计算第一层网络中的各个节点的相关数z，接着计算a，在下一层网络同理，会使用符号<sup>[m]</sup>表示第m层网络中节点相关的数，节点的集合被称为第m层网络计算过程如下：![image-20230206104721129](D:\GitHubResourse\复试内容准备\机器学习\1_NeuralNetworksAndDeepLearning.assets\image-20230206104721129.png)![image-20230206104734297](D:\GitHubResourse\复试内容准备\机器学习\1_NeuralNetworksAndDeepLearning.assets\image-20230206104734297.png)![image-20230206104739529](D:\GitHubResourse\复试内容准备\机器学习\1_NeuralNetworksAndDeepLearning.assets\image-20230206104739529.png)![image-20230206104948299](D:\GitHubResourse\复试内容准备\机器学习\1_NeuralNetworksAndDeepLearning.assets\image-20230206104948299.png)
-   2. 神经网络表示：![image-20230206105236744](D:\GitHubResourse\复试内容准备\机器学习\1_NeuralNetworksAndDeepLearning.assets\image-20230206105236744.png)
+   1. 可以把许多sigmoid单元堆叠起来形成一个神经网络![image-20230206103937477](D:\2023\深度学习\1_NeuralNetworksAndDeepLearning.assets\image-20230206103937477.png)s首先计算第一层网络中的各个节点的相关数z，接着计算a，在下一层网络同理，会使用符号<sup>[m]</sup>表示第m层网络中节点相关的数，节点的集合被称为第m层网络计算过程如下：![image-20230206104721129](D:\2023\深度学习\1_NeuralNetworksAndDeepLearning.assets\image-20230206104721129.png)![image-20230206104734297](D:\2023\深度学习\1_NeuralNetworksAndDeepLearning.assets\image-20230206104734297.png)![image-20230206104739529](D:\2023\深度学习\1_NeuralNetworksAndDeepLearning.assets\image-20230206104739529.png)![image-20230206104948299](D:\2023\深度学习\1_NeuralNetworksAndDeepLearning.assets\image-20230206104948299.png)
+   2. 神经网络表示：![image-20230206105236744](D:\2023\深度学习\1_NeuralNetworksAndDeepLearning.assets\image-20230206105236744.png)
       1. 我们有输入特征x1，x2，x3，它们被竖直的堆叠，这叫做神经网络的输入层，它包含了神经网络的输入，中间这一层我们称之为隐藏层。本例中最后一层只由一个结点构成，只有一个结点的层被称为输出层，它负责产生预测值。**隐藏层解释：在一个神经网络中，监督学习训练的时候，训练集包括了输入x和输出y，但中间结点的准确值我们是不知道的，我们看不见它们在训练集中应有的值。
       2. 引入符号：a<sup>[0]</sup>可用来表示输入特征，a表示激活的意思，它意味着网络中不同层的值会传递到它们后面的层中，输入层将x传递给隐藏层，所以我们将输入层的激活值称为a<sup>[0]</sup>，下一层隐藏层同样会产生一些激活值，我们将其记作a<sub>1</sub><sup>[1]</sup>，这样的解释就是第一层的第一个结点或是第一个单元。
       3. 就该例而言，最后产生的数值a，它只是一个单独的实数，所以将最后的输出值也可以取为a<sup>[2]</sup>。这与逻辑回归相似。
       4. 我们在计算网络的层数时，输入层是不算入总层数之中的，所以隐藏层是第一层，习惯上将输入层称为第0层
-      5. 我们看到的隐藏层以及最后的输出层是带有参数的。这里的隐藏层将会拥有两个参数W和b，注意：参数也会有上标的，即用来表示某层的参数，W矩阵的行列数与输入和单元有关![image-20230206110742307](D:\GitHubResourse\复试内容准备\机器学习\1_NeuralNetworksAndDeepLearning.assets\image-20230206110742307.png)
+      5. 我们看到的隐藏层以及最后的输出层是带有参数的。这里的隐藏层将会拥有两个参数W和b，注意：参数也会有上标的，即用来表示某层的参数，W矩阵的行列数与输入和单元有关![image-20230206110742307](D:\2023\深度学习\1_NeuralNetworksAndDeepLearning.assets\image-20230206110742307.png)
    3. 神经网络的输出
-      1. 逻辑回归的计算有两个步骤，首先按照步骤计算出z，以sigmod函数为激活函数计算z（得出a），一个神经网络只是这样子做了好几次重复计算。![image-20230206113349556](D:\GitHubResourse\复试内容准备\机器学习\1_NeuralNetworksAndDeepLearning.assets\image-20230206113349556.png)
-      2. 向量化计算：将四个等式向量化之后，向量化的过程是将网络中的一层神经元参数纵向堆积起来，例如隐藏层中的w纵向堆积起来变成一个（4，3）的矩阵，用符号W<sup>[1]</sup>表示。另一个视角是我们由四个逻辑回归单元，且每一个逻辑回归单元都有相应的参数-向量W，将四个向量堆积在一起，会得出4x3的矩阵，由公式：![image-20230206165348002](D:\GitHubResourse\复试内容准备\机器学习\1_NeuralNetworksAndDeepLearning.assets\image-20230206165348002.png)![image-20230206165353191](D:\GitHubResourse\复试内容准备\机器学习\1_NeuralNetworksAndDeepLearning.assets\image-20230206165353191.png)![image-20230206165402729](D:\GitHubResourse\复试内容准备\机器学习\1_NeuralNetworksAndDeepLearning.assets\image-20230206165402729.png)针对于每一层的输入以及输出，后一层的表示同样可以写成类似的形式。
+      1. 逻辑回归的计算有两个步骤，首先按照步骤计算出z，以sigmod函数为激活函数计算z（得出a），一个神经网络只是这样子做了好几次重复计算。![image-20230206113349556](D:\2023\深度学习\1_NeuralNetworksAndDeepLearning.assets\image-20230206113349556.png)
+      2. 向量化计算：将四个等式向量化之后，向量化的过程是将网络中的一层神经元参数纵向堆积起来，例如隐藏层中的w纵向堆积起来变成一个（4，3）的矩阵，用符号W<sup>[1]</sup>表示。另一个视角是我们由四个逻辑回归单元，且每一个逻辑回归单元都有相应的参数-向量W，将四个向量堆积在一起，会得出4x3的矩阵，由公式：![image-20230206165348002](D:\2023\深度学习\1_NeuralNetworksAndDeepLearning.assets\image-20230206165348002.png)![image-20230206165353191](D:\2023\深度学习\1_NeuralNetworksAndDeepLearning.assets\image-20230206165353191.png)![image-20230206165402729](D:\2023\深度学习\1_NeuralNetworksAndDeepLearning.assets\image-20230206165402729.png)针对于每一层的输入以及输出，后一层的表示同样可以写成类似的形式。
       3. 该层W的行列由前一层和后一层共同决定，其中行数是这一层的单元个数，列数是上一层的单元个数
-      4. ![image-20230206170151379](D:\GitHubResourse\复试内容准备\机器学习\1_NeuralNetworksAndDeepLearning.assets\image-20230206170151379.png)
-   4. 
+      4. ![image-20230206170151379](D:\2023\深度学习\1_NeuralNetworksAndDeepLearning.assets\image-20230206170151379.png)
+   4. 多个例子中的向量化：
+	   1. 逻辑回归是将各个训练样本组合成矩阵，对矩阵的各列进行计算。神经网络是通过对逻辑回归中的等式的简单变形，让神经网络计算出输出值。
+	   2. a<sup>[2](i)</sup>,(i)是指第i个训练样本而\[2]指第二层
+	   3. 对于所有训练样本，需要让i从1到m实现如下等式：![[Pasted image 20230303111106.png]]
+	   4. 向量化的计算：![[Pasted image 20230303111138.png]]![[Pasted image 20230303111143.png]]
+	   5. 利用Z<sup>[2]</sup>和A<sup>[2]</sup>这种符号进行表示的一个作用是，可以通过训练样本来进行索引。这就是水平索引对应于不同的训练样本的原因，这些训练样本是从左到右扫描训练集而得到的。
+	   6. 在垂直方向，这个垂直索引对应于神经网络中的不同节点。 当垂直扫描，是索引到隐藏单位的数字。竖直方向上，对应不同的输入特征，而这就是神经网络输入层中的各个节点。
+   5. 向量化实现的解释
+	   1. 上节课学习到了如何将多个训练样本横向堆叠成一个矩阵X，然后推导出神经网络中前向传播部分的向量化实现。
+	   2. ![[Pasted image 20230303220853.png]]单层示例 即当加入更多样本时，只需要向矩阵X中加入更多列
+	   3. Python的广播机制：将向量与矩阵的每一列相加。
+	   4. 实际上X可以记为A<sup>[0]</sup>,使用同样的方法就可以由神经网络中的每一层输入A<sup>[i-1]</sup>计算输出A<sup>[i]</sup>。这能够显示出神经网络的不同层次，大概每一步做的都是一样的，或者只不过是同样的计算不断重复而已
+   6. 激活函数：使用一个神经网络时，需要决定使用哪种激活函数用于隐藏层上，哪种用在输出节点上
+	   1. sigmod函数：<br>![[Pasted image 20230304100020.png]]<br>在神经网络的前向传输中使用到sigmod函数，被称为激活函数
+	   2. tanh函数或者双曲正切函数是总体上都优于sigmoid函数的激活函数：其值域为[-1,1]![[Pasted image 20230304100143.png]]<br>事实上，tanh函数是sigmod函数向下平移和伸缩的结果。**在训练算法模型时，如果使用tanh函数代替sigmoid函数中心化数据，使得数据 的平均值更接近0而不是0.5**
+	   3. 所以在不同的神经网络层中，激活函数可以不同。sigmoid函数和tanh函数两者共同的缺点是，在z特别大或者特别小的情况下，导数的梯度或者函数的斜率会变得特别小，最后接近于0，影响梯度下降的速度。
+	   4. 另一个流行的函数：修正线性单元的函数（ReLu）
+		   1. a=max(0,z)
+		   2. z是正值的情况下，导数恒等于1，z是负值的时候，导数恒等于0
+	   5. 选择激活函数的法则：
+		   1. 如果输出是0、1（二分类问题），输出层选择sigmoid函数，然后其他的所有单元都选择Relu函数
+		   2. 如果在隐藏层上不确定使用哪个激活函数，那么通常会使用Relu函数。有时也会使用tanh函数。Relu的一个特点：z是负值时，导数等于0
+	   6. 两者的优点：
+		   1. z的区间变动很大时，激活函数的导数或者激活函数的斜率都会远大于0，在程序实现就是一个if-else语句，sigmoid函数需要进行浮点四则运算，在实践中，使用ReLu激活函数神经网络通常会比使用sigmoid或者tanh激活函数学习的更快
+		   2. sigmoid和tanh函数的导数在正负饱和区的梯度都会接近于0，会造成梯度弥散，Relu和Leaky Relu函数大于0部分都为常数，不会产生梯度弥散的现象。
+		   3. ReLu函数：最常用的默认函数
+   7. 非线性激活函数：
+	   1. 如果一直使用线性激活函数，整个神经网络就是把很多输入线性组合之后在输出，可以简化公式之后直接输出 如果在隐藏层使用线性激活函数跟logidtic回归是一样的
+	   2. 唯一可以使用线性激活函数的通常就是输出层
+   8. 激活函数的导数
+	   1. ![[Pasted image 20230305105842.png]]
+	   2. ![[Pasted image 20230305105852.png]]
+	   3. ![[Pasted image 20230305105903.png]]
+	   4. ![[Pasted image 20230305105909.png]]
+   9. 神经网络的梯度下降法
+	   1. ![[Pasted image 20230305111404.png]]
+	   2. 注：这些都是针对所有样本进行过向量化
+   10. 直观理解反向传播
+	   1. ![[Pasted image 20230305153153.png]]
+	   2. 按最高层注意向下降即可
+	   3. ![[Pasted image 20230305153739.png]]
+   11. 随机初始化
+	   1. 如果把权重都初始化为0，由于隐含单元开始计算同一个函数，所有的隐含单元就会对输出单元有同样的影响。如果初始化为0，所有隐含单元都是对称的，无论梯度下降多久，计算着同样的函数，没有任何帮助。解决方法：随机初始化参数
+	   2. ![[Pasted image 20230305155011.png]]
+	   3. 某一层神经元的数量能够决定W的行数，而列数由输入决定（第二层列数由第一层神经元输入决定）
 
 ## d. Deep Neural Networks
-
+1. 深层神经网络（Deep L-layer Neural Network）
+	1. ![[Pasted image 20230322153853.png]]
+2. 前向传播![[Pasted image 20230322154753.png]]
+3. 核对矩阵的维数
+	1. ![[Pasted image 20230322155542.png]]![[Pasted image 20230322155655.png]]
+4. 为什么使用深层表示
+	1. 直觉上吧神经网络的前几层当作探测简单的的函数，比如边缘，之后把它们跟后几层结合在一起，那么总体上就能学习更多复杂的函数。 
+	2. 边缘探测器实际相对来说都是针对照片中非常小块的面积。面部探测器就会针对于大一些的区域。一般你会从比较小的细节入手，然后再一步步到更大更复杂的区域。
+	3. 深度神经网络中的许多隐藏层中，较早的前几层能学习一些低层次的简单特征，等到后基层，就能把简单的特征结合起来去探测更复杂的东西。
+	4. 深层的网络隐藏单元数量相对较少，隐藏层数目较多，如果浅层的网络想要达到同样的计算结果则需要指数级增长的单元数量才能达到。
+5. 搭建深层神经网络块
+	1. cache缓存的使用，存储W、b等数据。正向时可以存储到cache中，然后便于后续计算
+6. 前向和反向传播
